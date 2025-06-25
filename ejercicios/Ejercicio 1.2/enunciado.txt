@@ -1,0 +1,1 @@
+Verificar cuando un numero es multilpo de 5 

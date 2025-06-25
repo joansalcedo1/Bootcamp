@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title> Ejercicio 1</title>
+    <style>
+        .inputNumero{
+            text-align: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        input{
+            border-radius: 6px;
+            border: none;
+            width:max-content;
+            height: 10%;
+            background-color: aqua;
+        }
+        button{
+            height: 10%;
+            width: 300px;
+            box-shadow:inset;
+            border-radius: 50px;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Ejercicio #1</h1></center>
+    <div class="inputNumero">
+        <input id="numero" name="numero" placeholder="Ingrese un numero">
+        <button onclick="validarMultiplo5()">¿Es multiplo de 5?</button>
+    </div>
+        <script>
+            function validarMultiplo5() {
+                let inputNumero = document.getElementById("numero").value;
+                console.log(inputNumero);
+                if (inputNumero % 5 == 0) {
+                    alert(`${inputNumero} es multiplo de 5`);
+                } else {
+                    alert(`${inputNumero} no es multiplo de 5`);
+                }
+            }
+        </script>
+    
+</body>
+
+</html>
