@@ -1,5 +1,10 @@
 # React + Vite
 
+Este proyecto fue hecho para afianzar los concpetos con react y bootcamp. 
+La idea es realizar el sitio web de una libreria.
+## componentes tecnicos 
+Se utilizó vite con react y css personalizado + bootstrap.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
