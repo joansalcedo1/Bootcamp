@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function PokemonCard({ pokemon }) {
     return (//La etiqueta "Link" vuelve toda la carta en un boton, que cuando se presiona...(sigue en pokemonPage)
         <Link to={`/pokemon/${pokemon.name}`}>
-            <div id="fondoBlanco" className="bg-white shadow-md h-70 rounded-md rotate-lg overflow-hidden text-center p-4 transition hover:scale-105">
+            <div id="fondoBlanco" className="bg-white shadow-md h-70 rounded-md rotate-lg overflow-hidden text-center m-2 p-4 transition hover:scale-105">
                 <div id="fondoAmarillo" className="bg-amber-300 h-full rounded-md">
                     <h2 className="font-bold mb-2">{pokemon.name}</h2>
                     <div className="flex flex-row">
