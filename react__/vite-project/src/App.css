@@ -41,6 +41,8 @@
   color: #888;
 }*/
 
-body{
-  background-color: gold ;
+.hoverr:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }

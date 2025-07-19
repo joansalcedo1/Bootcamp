@@ -1,13 +1,14 @@
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Features from './components/Features'
-
+import Modal from './components/Modal'
 function App() {
   return (
     <>
     <Navbar/>
-    <Features/>
     <Hero/>
+    <Features/>
+    <Modal/>
     </>
   )
 }
