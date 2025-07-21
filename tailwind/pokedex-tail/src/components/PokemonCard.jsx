@@ -18,13 +18,15 @@ export default function PokemonCard({ pokemon }) {
                         </div>
                     </div>
                     <div id="imagen" className="bg-amber-100 h-45 ms-3 me-3 rounded-md">
-                        <img src={pokemon.sprites.front_default} alt={pokemon.name} className="w-30 h-30 mx-auto" />
+                        <img src={pokemon.sprites.other.home.front_default} alt={pokemon.name} className="w-30 h-30 mx-auto" />
                         <div className="flex justify-center">
-                            <Link to={`/pokemon/${pokemon.types[0].type.name}`}>
-                                <div className="bg-amber-200 w-20 h-7 m-5 align-middle rounded-md transition hover:scale-110">
+                                <div className="bg-amber-200 w-20 h-7 m-5 align-middle rounded-md transition">
                                     <p>{pokemon.types[0].type.name}</p>
                                 </div>
-                            </Link>
+                                 <div className="bg-amber-200 w-20 h-7 m-5 align-middle rounded-md transition">
+                                    <p>{pokemon.types[1]?.type.name}</p>
+                                </div>
+
                         </div>
                     </div>
 

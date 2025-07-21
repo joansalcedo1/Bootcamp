@@ -17,8 +17,8 @@ export default function Pokemonlist() {
         <>
             <h3> Pokedex</h3>
             <div className="row g-4">
-                {pokemons.map(pokemon =>(
-                    <PokemonCard key={pokemon.id} pokemon={pokemons}/>
+                {pokemons.map( pokemon =>(
+                    <PokemonCard pokemon={pokemons} key={pokemon.id}/>
                 ))}
             </div>
         </>

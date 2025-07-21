@@ -1,14 +1,30 @@
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Features from './components/Features'
-import Modal from './components/Modal'
+import Footer from './components/Footer'
+import { useState } from 'react'
 function App() {
+
+  const [darkMode, setDarkMode] = useState(false);
+  let colorbg = "bg-ligth"
+  let colorText = "text-dark"
+
+  const toggleDarkMode  = () => {
+    setDarkMode(!darkMode)
+    
+  }
+
+  if (darkMode) {
+    colorbg = "bg-dark"
+    colorText = "text-light"
+  }
+
   return (
     <>
-    <Navbar/>
-    <Hero/>
-    <Features/>
-    <Modal/>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Hero darkMode={darkMode} />
+      <Features darkMode={darkMode} />
+      <Footer/>
     </>
   )
 }
