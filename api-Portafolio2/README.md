@@ -130,3 +130,5 @@ module.exports = router
 
 ```
 y lo probamos en el navegador en la misma ruta anterior
+
+NOTAS DE JOAN: 
