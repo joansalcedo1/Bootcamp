@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { getPokemon } from "../services/poekeapi"
-import Header from "./Header"
+import Header from "./Header.jsx"
 import Hero from "./Hero"
 import Footer from "./Footer"
 import PokemonCard from "./PokemonCard"

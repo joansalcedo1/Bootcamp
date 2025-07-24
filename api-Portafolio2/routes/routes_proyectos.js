@@ -4,5 +4,9 @@ const router = express.Router()
 
 router.get("/", proyectoControllers.Proyectos)
 router.post("/", proyectoControllers.createProject)
-router.get("/:id", proyectoControllers.LoockProjectByName)
+router.get("/:id", proyectoControllers.LoockProjectByID)
+router.get("/nombre/:name",proyectoControllers.LoockProjectByName)
+router.put("/:id", proyectoControllers.updateProject)
+router.delete("/:id", proyectoControllers.deleteProjectById)
+router.delete("/nombre/:nombreParam", proyectoControllers.delateProjectByName)
 module.exports = router
