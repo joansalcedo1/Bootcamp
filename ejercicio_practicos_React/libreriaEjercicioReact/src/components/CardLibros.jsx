@@ -6,19 +6,20 @@ function cardLibros({ libro }) {
                 <div class="card-body ">
                     <div className="row ">
                         <div>
-                            <h5 className="card-title">{libro.titulo}</h5>
+                            <h5 className="card-title">
+                                {libro.titulo.replaceAll("_", " ")}
+                            </h5>
                         </div>
                         <div className="">
-                            <p className="card-text text-secondary">{`${libro.generos}`}</p>
+                            <p className="card-text text-secondary">
+                                {libro.generos.join(", ")}
+                            </p>
                         </div>
                     </div>
                     <div className="bg-secondary d-flex row justify-content-center align-items-end">
                         <div className=""></div>
                         <a href="#" class="btn btn-primary">Ver libro</a>
                     </div>
-
-
-
 
                 </div>
             </div>

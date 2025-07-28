@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import librosData from "../data/DataLibros.json"
 import CardLibros from "./cardLibros";
+import { getAllBooks } from "../services/getBooks";
 function Libros() {
     const [libros, setLibros] = useState([])
     useEffect(() => {
-        setLibros(librosData)
+        async function fetchData() {
+            const data = await getAllBooks()
+            console.log(data)
+            setLibros(data[0])
+        }
+        
+        fetchData()
     }, [])
     return (
         <>

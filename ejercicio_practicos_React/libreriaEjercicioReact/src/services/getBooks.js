@@ -1,4 +1,4 @@
-const API_URL= "localhost:3005/api/proyectos"
+const API_URL= "http://localhost:3005/api/libros"
 
 export async function getAllBooks() {
     let books = []
@@ -11,5 +11,5 @@ export async function getAllBooks() {
         console.log(error)
         return false
     }
-    
+    return books
 }

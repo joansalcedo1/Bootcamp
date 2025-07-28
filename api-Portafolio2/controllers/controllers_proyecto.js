@@ -39,7 +39,7 @@ exports.createProject = async (req, res) => {
 }
 exports.LoockProjectByName = async (req, res) => {
     try {
-        const name = req.params
+        const {name} = req.params
         const result = await ProyectosModel.find({ nombre: name })
         if (result==null){
             return res.status(404).json({message: `Proyecto ${name} no encontrado`})
