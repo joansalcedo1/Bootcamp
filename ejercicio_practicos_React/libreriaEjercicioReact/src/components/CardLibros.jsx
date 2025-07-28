@@ -1,4 +1,6 @@
+import Modal from "./Modal"
 function cardLibros({ libro }) {
+    const mensaje=""
     return (
         <>
             <div class="card m-2" style={{ width: "12rem" }}>
@@ -16,9 +18,16 @@ function cardLibros({ libro }) {
                             </p>
                         </div>
                     </div>
-                    <div className="bg-secondary d-flex row justify-content-center align-items-end">
-                        <div className=""></div>
-                        <a href="#" class="btn btn-primary">Ver libro</a>
+                    <div className="bg-secondary row mt-2">
+                        <Modal
+                            img={libro.portada}
+                            autor={libro.autor.replaceAll("_", " ")}
+                            precio={5555}
+                            info={libro.sinopsis}
+                            genero={libro.generos.join(", ")}
+                            titulo={libro.titulo.replaceAll("_", " ")}
+                            modalID={`modal-${libro.titulo}`}
+                        />
                     </div>
 
                 </div>

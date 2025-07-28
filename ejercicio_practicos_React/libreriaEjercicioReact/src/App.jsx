@@ -1,12 +1,13 @@
 import NavBar from "./components/NavBar"
-import Libros from "./components/libros"
-import Footer from "./components/Footer"
+import Libros from "./components/Libros"
+import OurServices from "./components/OurServices"
+
 function App() {
   return (
     <>
       <NavBar />
-      <Libros />
-      <Footer />
+      <Libros />  
+      <OurServices/>
     </>
   )
 }
