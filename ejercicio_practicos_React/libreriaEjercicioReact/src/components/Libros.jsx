@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import librosData from "../data/DataLibros.json"
+//import librosData from "../data/DataLibros.json"
 import CardLibros from "./CardLibros";
 import { getAllBooks } from "../services/getBooks";
 function Libros() {
