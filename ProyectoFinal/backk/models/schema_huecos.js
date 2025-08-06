@@ -6,7 +6,7 @@ const Huecos_Schema = new Schema({
     direccion: {
         type: String,
         required: true,
-        maxlength: 20
+        maxlength: 25
         
     },
     categoria:{
@@ -15,7 +15,9 @@ const Huecos_Schema = new Schema({
     },
     observaciones:{
         type: String,
-        required: true,
+        required: false,
         maxlength: 100
     }
 })
+
+export default mongoose.model("huecoModel",Huecos_Schema)

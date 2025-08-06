@@ -1,8 +1,10 @@
 import { Router } from "express"
-import {hey} from "../controller/controller_Huecos.js"
+import {crearHueco,getAllHuecos}  from "../controller/controller_Huecos.js"
 
-const router= Router()
+const router = Router()
 
-router.get("/",hey)
+//router.get("/",hey)
+router.post("/", crearHueco)
+router.get("/",getAllHuecos)
 
 export default router
