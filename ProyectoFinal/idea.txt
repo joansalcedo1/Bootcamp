@@ -1,0 +1,34 @@
+idea 1: Sistema para que las personas puedan reportar huecos en la ciudad de cali 
+  - front: tendria diferentes paginas:
+
+         home: *) Hero: Explicaria de forma muy detallada que esa pagina fue 
+                  hecha bajo el marco de un bootcamp y es un proyecto que
+                  no ha terminado y que además tendría un **llamado a la acción**
+                  con un boton grande que diga "reporta un hueco".
+ 		*) Huecos: Mostrar la cantidad de huecos
+			- Cards que digan info basica sobre el hueco 
+			(donde esta ubicado, categoria(pequeño, mediano
+ 			y grande y fecha). Puede funcionar como modal
+			que cuando se abra de más información como "observaciones"
+			- Mapa que muestre la ubicación de donde esta el hueco
+			  y que cada punto de hueco sea un modal.
+
+	 reportar hueco:
+		*) formulario: formulario basico pero bonito que pida los 
+			       datos del hueco: 
+				- donde esta ubicado
+				- categoria (pequeño,mediano y grande)
+				- observaciones
+	Mis huecos(mejorar nombre):
+		*) Huecos: Mostrar cuantos huecos se han reportado 
+			- buscar forma de mostrarlos (pokeapi, cards o etc...?)
+			- Mapa que muestre la ubicacion de los huecos que una
+			  persona ha reportado.
+   - back: 
+	   *) conexión a mongo db de la coleccion "huecos"
+	   *) creación de api:
+			      - CREAR hueco
+			      - CONSULTAR hueco (total y x ubicación)
+			      - MODIFICAR hueco (observaciones o ubicacion)
+			      - ELIMINAR hueco 
+	  *) 

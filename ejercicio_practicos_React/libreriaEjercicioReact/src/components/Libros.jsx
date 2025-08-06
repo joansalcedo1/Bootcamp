@@ -13,6 +13,7 @@ function Libros() {
             console.log(data)
             setLibros(data[0])
         }
+        fetchData()
 
     }, [])
     return (
