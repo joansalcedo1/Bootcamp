@@ -35,7 +35,6 @@ export default function Reportar() {
         
     }
     return (
-
         <>
             <section id="reportar_dad">
                 <div class="d-flex justify-content-center align-items-center m-4 ps-4 pe-4 ">

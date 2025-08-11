@@ -9,6 +9,7 @@ export default function MyMap({ corde, color}) {
   const largo = 250
   const [coords, setCoords] = useState(null)
   useEffect(() => {
+    let mapInstance = null; // referencia para cleanup
     const fetchData = async () => {
       try {
         const data = await convertirCoords(corde)
@@ -22,9 +23,15 @@ export default function MyMap({ corde, color}) {
       }
     }
     fetchData()
-
+    return () => {
+      // 🔹 Buscar el canvas WebGL de react-map-gl y destruir el contexto
+      const canvas = document.querySelector('canvas.mapboxgl-canvas');
+      if (canvas) {
+        const gl = canvas.getContext('webgl');
+        if (gl) gl.getExtension('WEBGL_lose_context')?.loseContext();
+      }
+    };
   }, [corde]);
-  console.log(color)
   return (
     <Map
       initialViewState={{

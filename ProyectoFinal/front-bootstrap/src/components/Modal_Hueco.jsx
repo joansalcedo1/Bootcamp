@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import MyMap from "./MapboxModal";
-export default function Modal({ direccion, categoria, comentarios, modalID }) {
+import { Link } from "react-router-dom";
+
+export default function Modal({ _id, direccion, categoria, comentarios, modalID }) {
     const [bgColor, setBgColor] = useState("")
+
     useEffect(() => {
 
         if (!categoria) return;
@@ -11,7 +14,7 @@ export default function Modal({ direccion, categoria, comentarios, modalID }) {
                 setBgColor("bg-danger")
                 break;
             case "mediano":
-                setBgColor("bg-verde") //revisar colores
+                setBgColor("bg-warning") //revisar colores
                 break;
             case "pequeño":
                 setBgColor("bg-info")
@@ -51,14 +54,14 @@ export default function Modal({ direccion, categoria, comentarios, modalID }) {
 
                                     <MyMap
                                         corde={direccion}
-                                        color={bgColor} 
-                                        />
-
-
+                                        color={bgColor}
+                                    />
                                     <div className="text-center mt-3">
-                                        <button type="button" className="btn btn-secondary btn-sm">
-                                            ¿Hueco tapado?
-                                        </button>
+                                        <Link to={`/misReportes/${_id}`} >
+                                            <button type="button" className="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                                                ¿Hueco tapado?
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
 

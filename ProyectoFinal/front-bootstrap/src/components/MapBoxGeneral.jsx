@@ -7,10 +7,10 @@ import { fetchDb } from "../services/fetchDb"
 export default function MapBoxGeneral() {
     //direcciones tal y como vienen de la bd
     const [direcciones, setDirecciones] = useState([])
-     //coordenadas que el mapa va a renderizar como markers
+    //coordenadas que el mapa va a renderizar como markers
     const [coords, setCoords] = useState([])
     const [categorias, setCategorias] = useState([])
-    const [markerColor,setMarkerColor]= useState("blue")
+    const [markerColor, setMarkerColor] = useState("blue")
     //Configuraciones del mapa
     const ancho = "100%"
     const largo = 400
@@ -18,13 +18,13 @@ export default function MapBoxGeneral() {
     //use efect para hacer el fetch de todos los huecos
     //pero solo se guarda las direcciones en el estado local de direcciones
     useEffect(() => {
-        
+        let mapInstance = null; // referencia para cleanup 
         async function traerHuecos() {
             try {
                 const data = await fetchDb()
                 if (data) {
-                    setCategorias(data.map(hueco=>hueco.categoria));
-                    setDirecciones(data.map(hueco=>hueco.direccion));
+                    setCategorias(data.map(hueco => hueco.categoria));
+                    setDirecciones(data.map(hueco => hueco.direccion));
                 } else {
                     console.log("No existen huecos que mostrar")
                 }
@@ -33,6 +33,14 @@ export default function MapBoxGeneral() {
             }
         }
         traerHuecos()
+        return () => {
+            // 🔹 Buscar el canvas WebGL de react-map-gl y destruir el contexto
+            const canvas = document.querySelector('canvas.mapboxgl-canvas');
+            if (canvas) {
+                const gl = canvas.getContext('webgl');
+                if (gl) gl.getExtension('WEBGL_lose_context')?.loseContext();
+            }
+        };
 
     }, [])
     //use efect para convertir las direcciones guardadas

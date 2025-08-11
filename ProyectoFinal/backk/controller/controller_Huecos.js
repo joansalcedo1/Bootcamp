@@ -60,6 +60,19 @@ const getHuecoByDir = async (req, res) => {
         return res.status(500).json(error)
     }
 }
+const getHuecoByDirParams = async (req, res) => {
+    try {
+        const dir = req.params
+        const hueco = await huecoModel.findOne({ direccion: dir })
+        if (!hueco) {
+            return res.status(404).json({ message: `No existen huecos en ${dir}` })
+        }
+        return res.status(200).json(hueco)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json(error)
+    }
+}
 const getHuecoByDirClose = async (req, res) => {
     try {
         const { dir } = req.params
@@ -120,4 +133,4 @@ const deleteHueco = async (req, res) => {
     }
 }
 
-export { crearHueco, getAllHuecos, getHuecoByDir, getHuecoById,getHuecoByDirClose, updateHueco, deleteHueco }
+export { crearHueco, getAllHuecos, getHuecoByDir,getHuecoByDirParams, getHuecoById,getHuecoByDirClose, updateHueco, deleteHueco }

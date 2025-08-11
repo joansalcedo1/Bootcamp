@@ -51,6 +51,7 @@ export default function Card_huecos({ hueco }) {
                     </div>
                     <div className="bg-secondary row rounded mt-2">
                         <Modal
+                            _id={hueco._id}
                             direccion={hueco.direccion}
                             categoria={hueco.categoria}
                             comentarios={hueco.observaciones}

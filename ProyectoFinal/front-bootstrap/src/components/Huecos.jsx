@@ -23,7 +23,7 @@ export default function Huecos(){
     return(
         <>
         <section id="Huecos_dad" className="m-5 text-center">
-            <h2 className="m-3">Revisalos todos, ve</h2>
+            <h2 className="m-3">Revisalos todos, vé</h2>
             <div className="container border p-3">
                 <div className="row">
                     {huecos.map((hueco,i)=>(
