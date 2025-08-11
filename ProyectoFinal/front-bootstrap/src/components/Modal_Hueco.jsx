@@ -50,7 +50,9 @@ export default function Modal({ direccion, categoria, comentarios, modalID }) {
                                     <p><b>Observaciones: </b>{comentarios}</p>
 
                                     <MyMap
-                                        corde={direccion} />
+                                        corde={direccion}
+                                        color={bgColor} 
+                                        />
 
 
                                     <div className="text-center mt-3">

@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import convertirCoords from "../services/geoCoding.js";
 import { useEffect, useState } from "react"
 
-export default function MyMap({ corde }) {
+export default function MyMap({ corde, color}) {
   if (!corde) return;
   const ancho = "100%"
   const largo = 250
@@ -24,7 +24,7 @@ export default function MyMap({ corde }) {
     fetchData()
 
   }, [corde]);
-
+  console.log(color)
   return (
     <Map
       initialViewState={{
@@ -39,7 +39,7 @@ export default function MyMap({ corde }) {
       {/* Esto asegura que solo se renderiza el marcador cuando coords ya tiene un array [lng, lat]. */}
       {coords &&
         (
-          <Marker longitude={coords[0]} latitude={coords[1]} />
+          <Marker longitude={coords[0]} latitude={coords[1]} color={color} />
         )}
     </Map>
   );

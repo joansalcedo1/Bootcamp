@@ -2,6 +2,8 @@ import Modal from "./Modal_Hueco"
 import { useEffect, useState } from "react"
 export default function Card_huecos({ hueco }) {
     const [bgColor, setBgColor] = useState("")
+    let url_staticIMG = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-87.0186,32.4055,14/500x300?access_token=pk.eyJ1Ijoic2ViMTAxMSIsImEiOiJjbWUydDVxZnUwdHV4Mmtwa3Q0b2FmdWFiIn0.4-Hb5WmIe21pLf3-clWYnw
+`
     useEffect(() => {
         switch (hueco.categoria) {
             case "pequeño":
@@ -29,7 +31,7 @@ export default function Card_huecos({ hueco }) {
     return (
         <>
             <div class="card m-2" style={{ width: "12rem" }}>
-                <img src={`${/*libro.portada*/"portada"}`} class="card-img-top card-header" style={{ height: "200px" }} alt="..." />
+                <div class="card-header"><h3>Hueco</h3></div>
                 <div class="card-body ">
                     <div className="row ">
                         <div>

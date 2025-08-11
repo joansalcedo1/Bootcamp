@@ -33,6 +33,7 @@ const crearHueco = async (req, res) => {
         return res.status(201).json(pokemon)*/
 
     } catch (error) {
+        console.log(error)
         return res.status(500).json(error.message)
     }
 }
@@ -42,6 +43,7 @@ const getAllHuecos = async (req, res) => {
         const huecos = await huecoModel.find()
         return res.status(200).json(huecos)
     } catch (error) {
+        console.log(error)
         return (res.status(500).json(error))
     }
 }
@@ -54,6 +56,7 @@ const getHuecoByDir = async (req, res) => {
         }
         return res.status(200).json(hueco)
     } catch (error) {
+        console.log(error)
         return res.status(500).json(error)
     }
 }
@@ -98,6 +101,7 @@ const updateHueco = async (req, res) => {
         }
         return res.status(200).json({ message: "Ok", result })
     } catch (error) {
+        console.log(error)
         return res.status(500).json(error)
     }
 }

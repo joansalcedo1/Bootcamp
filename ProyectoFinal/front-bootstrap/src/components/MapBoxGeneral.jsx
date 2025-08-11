@@ -9,7 +9,7 @@ export default function MapBoxGeneral() {
     const [direcciones, setDirecciones] = useState([])
      //coordenadas que el mapa va a renderizar como markers
     const [coords, setCoords] = useState([])
-
+    const [categorias, setCategorias] = useState([])
     const [markerColor,setMarkerColor]= useState("blue")
     //Configuraciones del mapa
     const ancho = "100%"
@@ -18,11 +18,12 @@ export default function MapBoxGeneral() {
     //use efect para hacer el fetch de todos los huecos
     //pero solo se guarda las direcciones en el estado local de direcciones
     useEffect(() => {
+        
         async function traerHuecos() {
             try {
                 const data = await fetchDb()
                 if (data) {
-                    
+                    setCategorias(data.map(hueco=>hueco.categoria));
                     setDirecciones(data.map(hueco=>hueco.direccion));
                 } else {
                     console.log("No existen huecos que mostrar")
