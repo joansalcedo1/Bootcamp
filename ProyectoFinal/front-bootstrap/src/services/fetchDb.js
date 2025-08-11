@@ -34,7 +34,7 @@ export async function update(hueco) {
 
     const huecoData = { direccion, categoria, observaciones };
     try {
-         const res = await fetch(`http://localhost:3005/api/huecos/${hueco._id}`,{
+         const res = await fetch(`${URL_API}${hueco._id}`,{
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(huecoData)
@@ -49,7 +49,7 @@ export async function update(hueco) {
 
 export async function borrar(_id) {
     try {
-        const res = await fetch(`http://localhost:3005/api/huecos/${_id}`,{
+        const res = await fetch(`${URL_API}${_id}`,{
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
         })
@@ -58,6 +58,16 @@ export async function borrar(_id) {
         console.log(error)
         return false
         
+    }
+}
+
+export async function searchByCloseDir(busqueda) {
+    try {
+        const res = await fetch(`${URL_API}direcSearch/${busqueda}`)
+        return res
+    } catch (error) {
+        console.log(error)
+        return false
     }
     
 }

@@ -62,7 +62,7 @@ const getHuecoByDir = async (req, res) => {
 }
 const getHuecoByDirParams = async (req, res) => {
     try {
-        const dir = req.params
+        const dir = req.params.dir
         const hueco = await huecoModel.findOne({ direccion: dir })
         if (!hueco) {
             return res.status(404).json({ message: `No existen huecos en ${dir}` })
@@ -76,8 +76,8 @@ const getHuecoByDirParams = async (req, res) => {
 const getHuecoByDirClose = async (req, res) => {
     try {
         const { dir } = req.params
-        // Crear una expresión regular que coincida con direcciones que comiencen con el texto
         /* 
+        Crear una expresión regular que coincida con direcciones que comiencen con el texto
         ^cra 100: comienza con cra100
         100 : contiene 100
         ^cra: comienza con cra 

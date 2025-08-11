@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getByID, update, borrar } from "../services/fetchDb";
+import { getByID, update, borrar, searchByCloseDir } from "../services/fetchDb";
 export default function MisReportes() {
     const { _id } = useParams()
     const [direccion, setDireccion] = useState("");
     const [categoria, setCategoria] = useState("");
     const [observaciones, setObservaciones] = useState("");
-    const [busqueda, setBusqueda]= useState("")
+    const [busqueda, setBusqueda] = useState("")
+    const [resultados, setResultados] = useState([])
     useEffect(() => {
 
         async function traerPorID() {
@@ -31,6 +32,24 @@ export default function MisReportes() {
         e.preventDefault();
         let res = await borrar(_id)
     }
+
+
+    async function handleSearch(e) {
+        e.preventDefault();
+        try {
+            let res = await searchByCloseDir(busqueda)
+            let data = await res.json()
+
+            setResultados(data)
+
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+    handleSearch
+
+    console.log(resultados)
     //return para cuando se mete a buscar un hueco en particular
     if (!_id) {
         return (
@@ -39,16 +58,38 @@ export default function MisReportes() {
                     <div className="d-flex justify-items-center align-items-center">
                         <div className="container mt-3">
                             {/* Barra de búsqueda */}
-                            <input
-                                type="text"
-                                className="form-control mb-3"
-                                placeholder="Buscar por dirección, categoría u observación..."
-                                value={busqueda}
-                                onChange={(e) => setBusqueda(e.target.value)}
-                            />
+                            <form onSubmit={handleSearch}>
+                                <div class="input-group mb-3">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Buscar por dirección"
+                                        value={busqueda}
+                                        onChange={(e) => setBusqueda(e.target.value)}
+                                        aria-describedby="button-addon2"
+                                    />
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                                </div>
+                            </form>
+                            {/* Mostrar resultados */}
+                            {resultados.length > 0 && (
+                                <div className="mt-4">
+                                    <h3>Resultados de búsqueda:</h3>
+                                    <ul className="list-group">
+                                        {resultados.map((hueco) => (
+                                            <li key={hueco._id} className="list-group-item">
+                                                <p><strong>Dirección:</strong> {hueco.direccion}</p>
+                                                <p><strong>Categoría:</strong> {hueco.categoria}</p>
+                                                <p><strong>Observaciones:</strong> {hueco.observaciones}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
                         </div>
                     </div>
-                </section>
+                </section >
             </>
         )
 
