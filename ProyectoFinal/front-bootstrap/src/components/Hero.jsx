@@ -6,8 +6,8 @@ export default function Hero() {
 
     return (
         <>
-            <section class="m-4 mt-5 ">
-                <div class="row p-4 shadow rounded-3 mb-4">
+            <section class="">
+                <div class="row shadow rounded-3 mb-4 bg-primary text-white">
                     <div class="col d-flex align-items-center px-4 py-5 my-5">
                         <div class="container m-2 text-center ">
                             <h2 className="p-2">¿Hay muchos huecos por tu cuadra, ve? </h2>
@@ -15,11 +15,16 @@ export default function Hero() {
                                 <h7>Reportalos y ayudemos a llevar un recuento de todos los craters que dañan nuestros vehiculos</h7>
                             </div>
                             <Link className="text-white text-decoration-none" to={"/reportar"}>
-                            <button type="button" class="btn btn-primary btn-lg btn-block font-weight-bold">Reportalo!!</button>
+                                <button type="button" class="btn btn-light btn-lg text-primary font-weight-bold pe-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus ms-2 me-2 mb-1" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                                    </svg>
+                                    Reportalo!!
+                                </button>
                             </Link>
                         </div>
                     </div>
-                    <div id="carousel_dad" class="col">
+                    <div id="carousel_dad" class="col m-3">
                         <div className="container ">
                             <div id="carouselExample" class="carousel slide ">
                                 <div class="carousel-inner">
@@ -49,7 +54,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="text-center container">
-                    <h2>MAPA AQUI</h2>
+                    <h2 class="m-5">MAPA AQUI</h2>
                     <div>
                         <MyMap />
                     </div>

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom";
+// Defaults to weight 400
 
 
 createRoot(document.getElementById('root')).render(
