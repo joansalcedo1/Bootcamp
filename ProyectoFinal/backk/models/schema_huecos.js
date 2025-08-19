@@ -18,6 +18,6 @@ const Huecos_Schema = new Schema({
         required: false,
         maxlength: 100
     }
-})
+}, { timestamps: true })
 
 export default mongoose.model("huecoModel",Huecos_Schema)
